@@ -21,3 +21,11 @@ app.use(Vueframe)
 
 app.mount('#app')
 ```
+
+### Usage
+
+``App.vue``
+
+```vue
+<YouTube autoplay muted id="dQw4w9WgXcQ" />
+```
