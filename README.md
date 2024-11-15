@@ -3,7 +3,14 @@
 ### Install
 
 ```bash
-npm i @vueframe/vueframe
+# npm
+npm install @vueframe/vueframe
+
+# yarn
+yarn add @vueframe/vueframe
+
+# pnpm
+pnpm add @vueframe/vueframe
 ```
 
 ### Import
