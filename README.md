@@ -11,7 +11,8 @@ A lightweight, modern Vue 3 component library for embedding video players from p
 - 🎬 Support for YouTube, Vimeo, and Dailymotion e.t.c
 - 🚀 Vue 3 compatible
 - 📱 Responsive by default
-- 🪶 Lightweight
+- ⚡ Lightweight
+- 🎛️ Univeral prop API
 
 ## Installation 📦
 
@@ -38,12 +39,7 @@ app.mount('#app')
 
 ```vue
 <template>
-  <YouTube 
-    id="u5CguqywlBk"
-    :autoplay="false"
-    width="1024px"
-    height="576px"
-  />
+  <Youtube id="u5CguqywlBk" />
 </template>
 ```
 
