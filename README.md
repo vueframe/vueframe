@@ -3,7 +3,7 @@
 A modern, lightweight Vue 3 component library for embedding video players from popular platforms.
 
 [![npm version](https://img.shields.io/npm/v/@vueframe/vueframe.svg)](https://www.npmjs.com/package/@vueframe/vueframe)
-[![license](https://img.shields.io/npm/l/@vueframe/vueframe.svg)](https://github.com/yourusername/vueframe/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/@vueframe/vueframe.svg)](https://github.com/vueframe/vueframe/blob/main/LICENSE)
 
 ## Features ✨
 
@@ -24,7 +24,7 @@ npm install @vueframe/vueframe
 ## Setup ⚙️
 
 ```ts
-// main.ts or main.js
+// main.ts / main.js
 import { createApp } from 'vue'
 import App from './App.vue'
 import VueFrame from '@vueframe/vueframe'
@@ -36,7 +36,7 @@ app.mount('#app')
 
 ## Usage 💻
 
-
+``App.vue``
 
 ### YouTube
 
@@ -47,17 +47,13 @@ app.mount('#app')
 ### Vimeo
 
 ```vue
-<template>
-  <Vimeo id="676247342" />
-</template>
+<Vimeo id="676247342" />
 ```
 
 ### Dailymotion
 
 ```vue
-<template>
-  <Dailymotion id="x8i1ffw" />
-</template>
+<Dailymotion id="x8i1ffw" />
 ```
 
 ## Props 🎛️
