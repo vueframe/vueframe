@@ -34,6 +34,48 @@ app.mount('#app')
 
 ### YouTube
 
+#### Usage
+
+```vue
+<YouTube id="u5CguqywlBk" />
+```
+
+#### Props
+
+| Prop       | Type          | Default     | Description                    |
+|------------|---------------|-------------|--------------------------------|
+| id         | String        | required    | YouTube video ID               |
+| autoplay   | Boolean       | false       | Automatically start playback   |
+| muted      | Boolean       | false       | Start video muted              |
+| width      | String/Number | '1024px'    | Player width                   |
+| height     | String/Number | '576px'     | Player height                  |
+
 ### Vimeo
 
+```vue
+<Vimeo id="676247342" />
+```
+
+#### Props
+
+| Prop       | Type          | Default     | Description                    |
+|------------|---------------|-------------|--------------------------------|
+| id         | String        | required    | Vimeo video ID                 |
+| autoplay   | Boolean       | false       | Automatically start playback   |
+| muted      | Boolean       | false       | Start video muted              |
+| width      | String/Number | '1024px'    | Player width                   |
+| height     | String/Number | '576px'     | Player height                  |
+
 ### Dailymotion
+
+```vue
+<Dailymotion id="x8i1ffw"/>
+```
+
+#### Props
+
+| Prop       | Type          | Default     | Description                    |
+|------------|---------------|-------------|--------------------------------|
+| id         | String        | required    | Dailymotion video ID           |
+| width      | String/Number | '1024px'    | Player width                   |
+| height     | String/Number | '576px'     | Player height                  |
