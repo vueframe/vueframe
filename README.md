@@ -17,6 +17,7 @@ A modern, lightweight Vue 3 component library for embedding video players from p
 ## Installation 📦
 
 ```bash
+# npm
 npm install @vueframe/vueframe
 ```
 
@@ -35,12 +36,12 @@ app.mount('#app')
 
 ## Usage 💻
 
+
+
 ### YouTube
 
 ```vue
-<template>
-  <Youtube id="u5CguqywlBk" />
-</template>
+<Youtube id="u5CguqywlBk" />
 ```
 
 ### Vimeo
@@ -74,17 +75,13 @@ app.mount('#app')
 ### Basic Usage
 
 ```vue
-<template>
-  <YouTube id="u5CguqywlBk" />
-</template>
+<YouTube id="u5CguqywlBk" />
 ```
 
 ### With Props
 
 ```vue
-<template>
-  <YouTube id="u5CguqywlBk" autoplay="true" muted="true" width="800px" height="450px"/>
-</template>
+<YouTube id="u5CguqywlBk" autoplay="true" muted="true" width="800px" height="450px"/>
 ```
 
 ## License 📄
