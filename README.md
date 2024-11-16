@@ -32,54 +32,26 @@ app.mount('#app')
 <YouTube id="u5CguqywlBk" />
 ```
 
-### YouTube
-
-#### Usage
+### Support
 
 ```vue
 <YouTube id="u5CguqywlBk" />
 ```
 
-#### Props
-
-| Prop       | Type          | Default     | Description                    |
-|------------|---------------|-------------|--------------------------------|
-| id         | String        | required    | YouTube video ID               |
-| autoplay   | Boolean       | false       | Automatically start playback   |
-| muted      | Boolean       | false       | Start video muted              |
-| width      | String/Number | '1024px'    | Player width                   |
-| height     | String/Number | '576px'     | Player height                  |
-
-### Vimeo
-
-#### Usage
-
 ```vue
 <Vimeo id="676247342" />
 ```
-
-#### Props
-
-| Prop       | Type          | Default     | Description                    |
-|------------|---------------|-------------|--------------------------------|
-| id         | String        | required    | Vimeo video ID                 |
-| autoplay   | Boolean       | false       | Automatically start playback   |
-| muted      | Boolean       | false       | Start video muted              |
-| width      | String/Number | '1024px'    | Player width                   |
-| height     | String/Number | '576px'     | Player height                  |
-
-### Dailymotion
-
-#### Usage
 
 ```vue
 <Dailymotion id="x8i1ffw"/>
 ```
 
-#### Props
+### Props
 
 | Prop       | Type          | Default     | Description                    |
 |------------|---------------|-------------|--------------------------------|
-| id         | String        | required    | Dailymotion video ID           |
+| id         | String        | required    | Platform video ID              |
+| autoplay   | Boolean       | false       | Automatically start playback   |
+| muted      | Boolean       | false       | Start video muted              |
 | width      | String/Number | '1024px'    | Player width                   |
 | height     | String/Number | '576px'     | Player height                  |
