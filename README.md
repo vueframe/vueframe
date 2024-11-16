@@ -52,6 +52,8 @@ app.mount('#app')
 
 ### Vimeo
 
+#### Usage
+
 ```vue
 <Vimeo id="676247342" />
 ```
@@ -67,6 +69,8 @@ app.mount('#app')
 | height     | String/Number | '576px'     | Player height                  |
 
 ### Dailymotion
+
+#### Usage
 
 ```vue
 <Dailymotion id="x8i1ffw"/>
