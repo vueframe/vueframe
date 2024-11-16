@@ -50,8 +50,8 @@ app.mount('#app')
 
 | Prop       | Type          | Default     | Description                    |
 |------------|---------------|-------------|--------------------------------|
-| id         | String        | required    | Platform video ID              |
-| autoplay   | Boolean       | false       | Automatically start playback   |
-| muted      | Boolean       | false       | Start video muted              |
-| width      | String/Number | '1024px'    | Player width                   |
-| height     | String/Number | '576px'     | Player height                  |
+| ``id``         | String        | required    | Platform video ID              |
+| ``autoplay``   | Boolean       | false       | Automatically start playback   |
+| ``muted``     | Boolean       | false       | Start video muted              |
+| ``width``      | String/Number | ``"1024px"``   | Player width                   |
+| ``height``     | String/Number | ``"576px"``     | Player height                  |
