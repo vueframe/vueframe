@@ -12,7 +12,7 @@ A modern, lightweight Vue 3 component library for embedding video players from p
 - 🚀 Vue 3 compatible
 - 📱 Responsive by default
 - ⚡ Lightweight
-- 🎛️ Univeral prop API
+- 🎛️ Universal prop API
 
 ## Installation 📦
 
