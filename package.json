@@ -5,6 +5,7 @@
   "main": "dist/vueframe.cjs.js",
   "module": "dist/vueframe.esm.js",
   "types": "dist/types/index.d.ts",
+  "type": "module",
   "files": [
     "dist"
   ],
