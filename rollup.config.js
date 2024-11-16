@@ -1,32 +1,30 @@
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import vue from '@vitejs/plugin-vue'
-import babel from '@rollup/plugin-babel'
+import vue from '@vitejs/plugin-vue';
+import babel from '@rollup/plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.js', // Entry point of your components
   output: [
     {
       file: 'dist/vueframe.cjs.js',
       format: 'cjs',
-      sourcemap: true
+      exports: 'named'
     },
     {
       file: 'dist/vueframe.esm.js',
       format: 'esm',
-      sourcemap: true
+      exports: 'named'
     }
   ],
   plugins: [
-    vue(),
+    vue(), // This processes .vue files
+    babel({
+      exclude: 'node_modules/**'
+    }),
     resolve(),
     commonjs(),
-    babel({
-      exclude: 'node_modules/**',
-      babelHelpers: 'bundled'
-    }),
-    terser()
-  ],
-  external: ['vue']
-}
+    terser() // Minify the output
+  ]
+};
