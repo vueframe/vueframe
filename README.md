@@ -1,6 +1,6 @@
 # VueFrame
 
-A lightweight, modern Vue 3 component library for embedding video players from popular platforms.
+A modern, lightweight Vue 3 component library for embedding video players from popular platforms.
 
 [![npm version](https://img.shields.io/npm/v/@vueframe/vueframe.svg)](https://www.npmjs.com/package/@vueframe/vueframe)
 [![license](https://img.shields.io/npm/l/@vueframe/vueframe.svg)](https://github.com/yourusername/vueframe/blob/main/LICENSE)
