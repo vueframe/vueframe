@@ -3,6 +3,7 @@
 ### Install
 
 ```bash
+# npm
 npm install @vueframe/vueframe
 ```
 
@@ -25,5 +26,6 @@ app.mount('#app')
 ``App.vue``
 
 ```vue
-<YouTube autoplay muted id="dQw4w9WgXcQ" />
+<!-- Basic usage -->
+<YouTube id="u5CguqywlBk" />
 ```
