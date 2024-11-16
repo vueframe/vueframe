@@ -1,6 +1,6 @@
 {
   "name": "@vueframe/vueframe",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A modern, lightweight Vue 3 component library for embedding video players from popular platforms.",
   "main": "dist/vueframe.cjs.js",
   "module": "dist/vueframe.esm.js",
