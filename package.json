@@ -1,6 +1,6 @@
 {
   "name": "@vueframe/vueframe",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "private": false,
   "type": "module",
   "main": "dist/vueframe.min.cjs",
