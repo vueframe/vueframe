@@ -1,6 +1,7 @@
 <template>
   <div class="vueframe--vimeo" :style="{ width: width, height: height }">
     <iframe
+      class="vueframe--vimeo--iframe"
       :src="embedUrl"
       frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -73,7 +74,7 @@ export default {
   border-radius: 0.5rem;
 }
 
-.vueframe--vimeo iframe {
+.vueframe--vimeo .vueframe--vimeo--iframe {
   height: 100%;
   width: 100%;
 }

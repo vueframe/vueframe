@@ -1,6 +1,7 @@
 <template>
   <div class="vueframe--youtube" :style="{ width: width, height: height }">
     <iframe
+      class="vueframe--youtube--iframe"
       :src="embedUrl"
       frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -71,7 +72,7 @@ export default {
   border-radius: 0.5rem;
 }
 
-.vueframe--youtube iframe {
+.vueframe--youtube .vueframe--youtube--iframe {
   height: 100%;
   width: 100%;
 }

@@ -1,6 +1,7 @@
 <template>
   <div class="vueframe--dailymotion" :style="{ width: width, height: height }">
     <iframe
+      class="vueframe--dailymotion-iframe"
       :src="embedUrl"
       frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -50,7 +51,7 @@ export default {
   border-radius: 0.5rem;
 }
 
-.vueframe--dailymotion iframe {
+.vueframe--dailymotion .vueframe--dailymotion-iframe {
   height: 100%;
   width: 100%;
 }
