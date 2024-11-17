@@ -2,8 +2,10 @@
   <div 
     class="vueframe--youtube" 
     :style="{ width: width, height: height }"
+    ref="container"
   >
     <iframe
+      v-if="isVisible"
       class="vueframe--youtube--iframe"
       :src="embedUrl"
       frameborder="0" 
@@ -16,56 +18,61 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 
 export default {
   name: 'YouTube',
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    autoplay: {
-      type: Boolean,
-      default: false,
-    },
-    muted: {
-      type: Boolean,
-      default: false,
-    },
-    width: {
-      type: String,
-      default: '1024px',
-    },
-    height: {
-      type: String,
-      default: '576px',
-    },
-    title: {
-      type: String,
-      default: null,
-    },
+    id: { type: String, required: true },
+    autoplay: { type: Boolean, default: false },
+    muted: { type: Boolean, default: false },
+    width: { type: String, default: '1024px' },
+    height: { type: String, default: '576px' },
+    title: { type: String, default: null },
+    loading: { type: String, default: 'eager' },
   },
   setup(props) {
     const embedUrl = computed(() => {
       const params = new URLSearchParams({
-        rel: '0',
+        rel: 0,
+        autoplay: props.autoplay ? 1 : 0,
+        mute: props.muted ? 1 : 0,
       })
-
-      if (props.autoplay) {
-        params.append('autoplay', '1')
-      }
-
-      if (props.muted) {
-        params.append('mute', '1')
-      }
-
       return `https://www.youtube.com/embed/${props.id}?${params.toString()}`
     })
 
-    return {
-      embedUrl,
+    const isVisible = ref(props.loading === 'eager')
+
+    const container = ref(null)
+
+    const initObserver = () => {
+      if (props.loading !== 'lazy' || isVisible.value) return
+
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          isVisible.value = true
+          observer.disconnect()
+        }
+      })
+
+      if (container.value) {
+        observer.observe(container.value)
+      }
     }
+
+    onMounted(() => {
+      if (props.loading === 'lazy') {
+        initObserver()
+      }
+    })
+
+    onUnmounted(() => {
+      if (observer) {
+        observer.disconnect()
+      }
+    })
+
+    return { embedUrl, isVisible, container }
   },
 }
 </script>
@@ -80,7 +87,9 @@ export default {
 }
 
 .vueframe--youtube .vueframe--youtube--iframe {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  max-width: 100%;
 }
 </style>

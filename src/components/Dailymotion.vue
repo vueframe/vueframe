@@ -2,9 +2,11 @@
   <div 
     class="vueframe--dailymotion" 
     :style="{ width: width, height: height }"
+    ref="container"
   >
     <iframe
-      class="vueframe--dailymotion-iframe"
+      v-if="isVisible"
+      class="vueframe--dailymotion--iframe"
       :src="embedUrl"
       frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -16,35 +18,58 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 
 export default {
   name: 'Dailymotion',
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    width: {
-      type: String,
-      default: '1024px',
-    },
-    height: {
-      type: String,
-      default: '576px',
-    },
-    title: {
-      type: String,
-      default: null,
-    },
+    id: { type: String, required: true },
+    muted: { type: Boolean, default: false },
+    width: { type: String, default: '1024px' },
+    height: { type: String, default: '576px' },
+    title: { type: String, default: null },
+    loading: { type: String, default: 'eager' },
   },
   setup(props) {
     const embedUrl = computed(() => {
-      return `https://geo.dailymotion.com/player.html?video=${props.id}`
+      const params = new URLSearchParams({
+        mute: props.muted ? 'true' : 'false',
+      })
+      return `https://geo.dailymotion.com/player.html?video=${props.id}&${params.toString()}`
     })
-    return {
-      embedUrl,
+
+    const isVisible = ref(props.loading === 'eager')
+
+    const container = ref(null)
+
+    const initObserver = () => {
+      if (props.loading !== 'lazy' || isVisible.value) return
+
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          isVisible.value = true
+          observer.disconnect()
+        }
+      })
+
+      if (container.value) {
+        observer.observe(container.value)
+      }
     }
+
+    onMounted(() => {
+      if (props.loading === 'lazy') {
+        initObserver()
+      }
+    })
+
+    onUnmounted(() => {
+      if (observer) {
+        observer.disconnect()
+      }
+    })
+
+    return { embedUrl, isVisible, container }
   },
 }
 </script>
@@ -58,8 +83,9 @@ export default {
   border-radius: 0.5rem;
 }
 
-.vueframe--dailymotion .vueframe--dailymotion-iframe {
+.vueframe--dailymotion .vueframe--dailymotion--iframe {
   height: 100%;
   width: 100%;
+  z-index: 0;
 }
 </style>
