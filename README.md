@@ -64,10 +64,11 @@ This component currently does not support ``autoplay`` or ``muted``
 |------|------|---------|-------------|
 | `id` | `string` | Required | Video ID from the platform |
 | `autoplay` | `boolean` | `false` | Auto-start playback |
-| `muted` | `boolean` | `false` | Initialize video muted |
-| `width` | `string\|number` | `"1024px"` | Player width |
-| `height` | `string\|number` | `"576px"` | Player height |
-| `title` | `string` | `null` | Video Title |
+| `muted` | `boolean` | `false` | Start video muted |
+| `width` | `string\|number` | `"1024px"` | Embed width |
+| `height` | `string\|number` | `"576px"` | Embed height |
+| `title` | `string` | `null` | Embed Title |
+| `loading` | `string` | `eager` | Embed Loading strategy can be `eager` or `lazy` |
 
 ## Examples 🎯
 
@@ -80,7 +81,8 @@ This component currently does not support ``autoplay`` or ``muted``
   muted 
   width="800px" 
   height="450px" 
-  title="Never Gonna Give You Up" 
+  title="Never Gonna Give You Up"
+  loading="lazy"
 />
 ```
 
