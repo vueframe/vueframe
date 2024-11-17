@@ -10,7 +10,7 @@ High performance, rich media embed components. For your site, built using Vue.
 - 🎯 Simple, zero-config setup
 - 🎬 Support for YouTube, Vimeo, and Dailymotion e.t.c
 - 🚀 Vue 3 compatible
-- ⚡ Lightweight
+- ⚡ Lightweight + Lazy loading support
 - 🎛️ Universal prop API
 <!-- - 📱 Responsive by default -->
 
