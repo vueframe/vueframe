@@ -1,6 +1,6 @@
 # vueframe
 
-A modern, lightweight Vue 3 component library for embedding video players from popular platforms.
+High performance, rich media embed components. For your site, built using Vue.
 
 [![npm version](https://img.shields.io/npm/v/@vueframe/vueframe.svg)](https://www.npmjs.com/package/@vueframe/vueframe)
 ![License](https://img.shields.io/badge/license-MIT-red)
