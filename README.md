@@ -10,9 +10,9 @@ A modern, lightweight Vue 3 component library for embedding video players from p
 - 🎯 Simple, zero-config setup
 - 🎬 Support for YouTube, Vimeo, and Dailymotion e.t.c
 - 🚀 Vue 3 compatible
-- 📱 Responsive by default
 - ⚡ Lightweight
 - 🎛️ Universal prop API
+<!-- - 📱 Responsive by default -->
 
 ## Installation 📦
 
