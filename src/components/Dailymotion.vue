@@ -35,7 +35,7 @@ export default {
     },
     title: {
       type: String,
-      default: 'Dailymotion',
+      default: null,
     },
   },
   setup(props) {

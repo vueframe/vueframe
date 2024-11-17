@@ -43,7 +43,7 @@ export default {
     },
     title: {
       type: String,
-      default: 'YouTube',
+      default: null,
     },
   },
   setup(props) {
