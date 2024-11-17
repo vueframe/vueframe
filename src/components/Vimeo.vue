@@ -1,5 +1,9 @@
 <template>
-  <div class="vueframe--vimeo" :style="{ width: width, height: height }">
+  <div 
+    class="vueframe--vimeo" 
+    :style="{ width: width, height: height }"
+    aria-label="Vimeo"
+  >
     <iframe
       class="vueframe--vimeo--iframe"
       :src="embedUrl"

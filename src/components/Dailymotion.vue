@@ -1,5 +1,9 @@
 <template>
-  <div class="vueframe--dailymotion" :style="{ width: width, height: height }">
+  <div 
+    class="vueframe--dailymotion" 
+    :style="{ width: width, height: height }"
+    aria-label="Dailymotion"
+  >
     <iframe
       class="vueframe--dailymotion-iframe"
       :src="embedUrl"

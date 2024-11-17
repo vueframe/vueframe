@@ -1,5 +1,9 @@
 <template>
-  <div class="vueframe--youtube" :style="{ width: width, height: height }">
+  <div 
+    class="vueframe--youtube" 
+    :style="{ width: width, height: height }"
+    aria-label="YouTube"
+  >
     <iframe
       class="vueframe--youtube--iframe"
       :src="embedUrl"
