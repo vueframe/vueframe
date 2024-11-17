@@ -70,12 +70,6 @@ This component currently does not support ``autoplay`` or ``muted``
 
 ## Examples 🎯
 
-### Basic Usage
-
-```vue
-<YouTube id="dQw4w9WgXcQ" />
-```
-
 ### With Props
 
 ```vue
