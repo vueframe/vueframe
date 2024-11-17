@@ -1,44 +1,25 @@
 {
   "name": "@vueframe/vueframe",
-  "version": "1.0.5",
-  "description": "A modern, lightweight Vue 3 component library for embedding video players from popular platforms.",
-  "main": "dist/vueframe.cjs.js",
-  "module": "dist/vueframe.esm.js",
-  "types": "dist/vueframe.d.ts",
+  "version": "1.0.6",
+  "private": false,
   "type": "module",
+  "main": "dist/vueframe.min.cjs",
+  "module": "dist/vueframe.min.mjs",
   "files": [
-    "dist"
+    "dist/*"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "lint": "eslint src",
-    "test": "jest"
-  },
-  "dependencies": {
-    "rollup-plugin-postcss": "^4.0.2",
-    "vue": "^3.0.0"
-  },
-  "devDependencies": {
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "rollup": "^4.27.2",
-    "rollup-plugin-typescript2": "^0.36.0",
-    "typescript": "^5.6.3",
-    "vue-tsc": "^1.0.0"
+    "build": "rollup -c"
   },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.3.4"
   },
-  "keywords": [
-    "vue",
-    "vue components",
-    "vue library",
-    "iframe",
-    "embed"
-  ],
-  "author": "vueframe",
-  "license": "MIT"
+  "devDependencies": {
+    "vue": "^3.3.4",
+    "rollup": "^3.25.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "@rollup/plugin-terser": "^0.4.3"
+  }
 }

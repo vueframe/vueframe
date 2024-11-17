@@ -29,9 +29,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import VueFrame from '@vueframe/vueframe'
 
-const app = createApp(App)
-app.use(VueFrame)
-app.mount('#app')
+createApp(App)
+  .use(VueFrame)
+  .mount('#app')
 ```
 
 ## Usage 💻

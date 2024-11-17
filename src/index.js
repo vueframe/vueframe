@@ -1,27 +1,20 @@
-import { App as VueApp } from 'vue'; // Import VueApp for proper type declaration
-import YouTube from './components/YouTube.vue';
-import Dailymotion from './components/Dailymotion.vue';
-import Vimeo from './components/Vimeo.vue';
+import YouTube from './components/YouTube.vue'
+import Vimeo from './components/Vimeo.vue'
+import Dailymotion from './components/Dailymotion.vue'
 
 const components = {
   YouTube,
-  Dailymotion,
   Vimeo,
-};
-
-const install = (app) => {
-  Object.keys(components).forEach((componentName) => {
-    app.component(componentName, components[componentName]);
-  });
-};
-
-// Automatically install components if Vue is found globally
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
+  Dailymotion
 }
 
-export default {
-  install,
-};
-
-export { YouTube, Dailymotion, Vimeo };
+export default app => {
+  for (const prop in components) {
+    if (components.hasOwnProperty(prop)) {
+      app.component(
+        components[prop].name,
+        components[prop]
+      )
+    }
+  }
+}
