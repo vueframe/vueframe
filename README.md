@@ -41,7 +41,7 @@ createApp(App)
 ### YouTube
 
 ```vue
-<Youtube id="u5CguqywlBk" />
+<YouTube id="u5CguqywlBk" />
 ```
 
 ### Vimeo
