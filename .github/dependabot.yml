@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-name: "vue"
+      - dependency-name: "rollup"
+      - dependency-name: "rollup-plugin-vue"
+      - dependency-name: "rollup-plugin-postcss"
+      - dependency-name: "rollup-plugin-peer-deps-external"
+      - dependency-name: "@rollup/plugin-terser"
