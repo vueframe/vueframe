@@ -56,6 +56,8 @@ createApp(App)
 <Dailymotion id="x8i1ffw" />
 ```
 
+This component currently does not support ``autoplay`` or ``muted``
+
 ## Props 🎛️
 
 | Prop | Type | Default | Description |
