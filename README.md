@@ -52,11 +52,11 @@ createApp(App)
 
 ### Dailymotion
 
+This component currently does not support ``autoplay`` or ``muted``
+
 ```vue
 <Dailymotion id="x8i1ffw" />
 ```
-
-This component currently does not support ``autoplay`` or ``muted``
 
 ## Props 🎛️
 
