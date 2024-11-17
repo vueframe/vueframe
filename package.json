@@ -12,14 +12,14 @@
     "build": "rollup -c"
   },
   "peerDependencies": {
-    "vue": "^3.3.4"
+    "vue": "*"
   },
   "devDependencies": {
-    "vue": "^3.3.4",
-    "rollup": "^3.25.1",
-    "rollup-plugin-vue": "^6.0.0",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "@rollup/plugin-terser": "^0.4.3"
+    "vue": "*",
+    "rollup": "*",
+    "rollup-plugin-vue": "*",
+    "rollup-plugin-postcss": "*",
+    "rollup-plugin-peer-deps-external": "*",
+    "@rollup/plugin-terser": "*"
   }
 }
