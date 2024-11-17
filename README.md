@@ -77,7 +77,7 @@ createApp(App)
 ### With Props
 
 ```vue
-<YouTube id="u5CguqywlBk" autoplay="true" muted="true" width="800px" height="450px"/>
+<YouTube id="u5CguqywlBk" autoplay muted width="800px" height="450px" />
 ```
 
 ## License 📄
