@@ -27,10 +27,10 @@ npm install @vueframe/vueframe
 // main.ts / main.js
 import { createApp } from 'vue'
 import App from './App.vue'
-import VueFrame from '@vueframe/vueframe'
+import vueframe from '@vueframe/vueframe'
 
 createApp(App)
-  .use(VueFrame)
+  .use(vueframe)
   .mount('#app')
 ```
 
