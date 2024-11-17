@@ -2,7 +2,6 @@
   <div 
     class="vueframe--vimeo" 
     :style="{ width: width, height: height }"
-    aria-label="Vimeo"
   >
     <iframe
       class="vueframe--vimeo--iframe"
@@ -11,7 +10,7 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
       referrerpolicy="strict-origin-when-cross-origin" 
       allowfullscreen
-      title="Vimeo"
+      :title="title"
     ></iframe>
   </div>
 </template>
@@ -41,6 +40,10 @@ export default {
     height: {
       type: String,
       default: '576px',
+    },
+    title: {
+      type: String,
+      default: 'Vimeo',
     },
   },
   setup(props) {

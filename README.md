@@ -67,13 +67,21 @@ This component currently does not support ``autoplay`` or ``muted``
 | `muted` | `boolean` | `false` | Initialize video muted |
 | `width` | `string\|number` | `"1024px"` | Player width |
 | `height` | `string\|number` | `"576px"` | Player height |
+| `title` | `string` | `null` | Video Title |
 
 ## Examples 🎯
 
 ### With Props
 
 ```vue
-<YouTube id="dQw4w9WgXcQ" autoplay muted width="800px" height="450px" />
+<YouTube 
+  id="dQw4w9WgXcQ" 
+  autoplay 
+  muted 
+  width="800px" 
+  height="450px" 
+  title="Never Gonna Give You Up" 
+/>
 ```
 
 ## License 📄

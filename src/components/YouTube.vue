@@ -2,7 +2,6 @@
   <div 
     class="vueframe--youtube" 
     :style="{ width: width, height: height }"
-    aria-label="YouTube"
   >
     <iframe
       class="vueframe--youtube--iframe"
@@ -11,7 +10,7 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
       referrerpolicy="strict-origin-when-cross-origin" 
       allowfullscreen
-      title="YouTube"
+      :title="title"
     ></iframe>
   </div>
 </template>
@@ -41,6 +40,10 @@ export default {
     height: {
       type: String,
       default: '576px',
+    },
+    title: {
+      type: String,
+      default: 'YouTube',
     },
   },
   setup(props) {

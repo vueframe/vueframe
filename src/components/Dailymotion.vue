@@ -2,7 +2,6 @@
   <div 
     class="vueframe--dailymotion" 
     :style="{ width: width, height: height }"
-    aria-label="Dailymotion"
   >
     <iframe
       class="vueframe--dailymotion-iframe"
@@ -11,7 +10,7 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
       referrerpolicy="strict-origin-when-cross-origin" 
       allowfullscreen
-      title="Dailymotion"
+      :title="title"
     ></iframe>
   </div>
 </template>
@@ -33,6 +32,10 @@ export default {
     height: {
       type: String,
       default: '576px',
+    },
+    title: {
+      type: String,
+      default: 'Dailymotion',
     },
   },
   setup(props) {
