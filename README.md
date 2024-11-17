@@ -41,7 +41,7 @@ createApp(App)
 ### YouTube
 
 ```vue
-<YouTube id="u5CguqywlBk" />
+<YouTube id="dQw4w9WgXcQ" />
 ```
 
 ### Vimeo
@@ -73,13 +73,13 @@ This component currently does not support ``autoplay`` or ``muted``
 ### Basic Usage
 
 ```vue
-<YouTube id="u5CguqywlBk" />
+<YouTube id="dQw4w9WgXcQ" />
 ```
 
 ### With Props
 
 ```vue
-<YouTube id="u5CguqywlBk" autoplay muted width="800px" height="450px" />
+<YouTube id="dQw4w9WgXcQ" autoplay muted width="800px" height="450px" />
 ```
 
 ## License 📄
