@@ -86,6 +86,14 @@ createApp(App)
 />
 ```
 
+## To-Do
+
+- [ ] Convert youtube component over to use ``@justinribeiro/lite-youtube``
+- [ ] Add ``autoplay`` support for Dailymotion
+- [ ] Add support for Twitter embeds
+- [ ] Add support for Bluesky embeds
+- [ ] Add support for Reddit embeds
+
 ## License 📄
 
 MIT © vueframe
