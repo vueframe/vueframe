@@ -88,8 +88,8 @@ createApp(App)
 
 ## To-Do
 
-- [ ] Convert YouTube component over to use ``@justinribeiro/lite-youtube``
-- [ ] Convert Vimeo component over to use ``lite-vimeo``
+- [ ] Convert YouTube component over to use ``justinribeiro/lite-youtube``
+- [ ] Convert Vimeo component over to use ``luwes/lite-vimeo-embed``
 - [ ] Add ``autoplay`` support for Dailymotion
 - [ ] Add support for Twitter embeds
 - [ ] Add support for Bluesky embeds
