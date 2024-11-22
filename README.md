@@ -26,7 +26,7 @@
   <a href="#installation">Installation</a> •
   <a href="#youtube">YouTube</a> •
   <a href="#vimeo">Vimeo</a> •
-  <a href="#copyright-&-license">Copyright & license</a>
+  <a href="#copyright--license">Copyright & license</a>
 </p>
 
 <!-- ## Features
