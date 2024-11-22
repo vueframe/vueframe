@@ -115,7 +115,7 @@ import { Youtube, Vimeo } from '@vueframe/vueframe'
 ```html
 <Vimeo
   id="32001208"
-  poster="https://raw.githubusercontent.com/vueframe/vueframe/main/banner/banner.svg"
+  poster="https://raw.githubusercontent.com/vueframe/vueframe/main/banner/banner.png"
 />
 ```
 
