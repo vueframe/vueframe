@@ -29,5 +29,30 @@
   "dependencies": {
     "@justinribeiro/lite-youtube": "*",
     "lite-vimeo-embed": "*"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vueframe/vueframe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vueframe/vueframe/issues"
+  },
+  "homepage": "https://github.com/vueframe/vueframe",
+  "author": {
+    "name": "vueframe",
+    "url": "https://github.com/vueframe/vueframe"
+  },
+  "license": "MIT",
+  "keywords": [
+    "javascript",
+    "youtube",
+    "vimeo",
+    "typescript",
+    "components",
+    "vue",
+    "embed",
+    "iframe",
+    "vueframe",
+    "dino"
+  ]
 }
