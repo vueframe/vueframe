@@ -53,7 +53,7 @@ import { Youtube, Vimeo } from '@vueframe/vueframe'
 
 ### Usage
 
-``app.vue``
+``App.vue``
 
 ```html
 <YouTube id="dCxSsr5xuL8" />
@@ -102,7 +102,7 @@ import { Youtube, Vimeo } from '@vueframe/vueframe'
 
 ### Usage
 
-``app.vue``
+``App.vue``
 
 ```html
 <Vimeo id="32001208" />
