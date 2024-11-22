@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <a href="#Features">Features</a> •
+  <!-- <a href="#Features">Features</a> • -->
   <a href="#installation">Installation</a> •
   <a href="#youtube">YouTube</a> •
   <a href="#vimeo">Vimeo</a> •
@@ -35,7 +35,7 @@
 - 🎬 Support for YouTube, Vimeo e.t.c
 - 🚀 Vue 3 compatible
 - ⚡ Superfast and Lightweight
-- 🔄 Customizable Props-->
+- 🔄 Customizable Props -->
 
 ## Installation
 
