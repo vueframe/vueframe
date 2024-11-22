@@ -26,7 +26,7 @@
   <a href="#installation">Installation</a> •
   <a href="#youtube">YouTube</a> •
   <a href="#vimeo">Vimeo</a> •
-  <a href="#license">License</a>
+  <a href="#copyright-&-license">Copyright & license</a>
 </p>
 
 <!-- ## Features
@@ -142,7 +142,7 @@ This component does not currently support params
 />
 ```
 
-## Copyright and license
+## Copyright & license
 
 Licensed under the MIT License, Copyright © 2024-present vueframe.
 
