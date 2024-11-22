@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://github.com/vueframe/vueframe"><img src="https://raw.githubusercontent.com/vueframe/vueframe/main/icon/dino.png" alt="vueframe" width="175"></a>
+  <a href="https://github.com/vueframe/vueframe"><img src="https://raw.githubusercontent.com/vueframe/vueframe/refs/heads/main/icon/dino.png" alt="vueframe" width="175"></a>
   <br>
   vueframe
   <br>
