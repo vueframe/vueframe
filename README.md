@@ -94,7 +94,7 @@ import { Youtube, Vimeo } from '@vueframe/vueframe'
 ```html
 <YouTube
   id="dCxSsr5xuL8"
-  title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
+  title="Nuxt in 100 Seconds"
 />
 ```
 
