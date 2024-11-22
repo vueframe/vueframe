@@ -1,96 +1,115 @@
 <template>
-  <div 
-    class="vueframe--vimeo" 
-    :style="{ width: width, height: height }"
-    ref="container"
-  >
-    <iframe
-      v-if="isVisible"
-      class="vueframe--vimeo--iframe"
-      :src="embedUrl"
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" 
-      allowfullscreen
+  <div class="vueframe">
+    <lite-vimeo
+      ref="embedRef"
+      :videoid="id" 
       :title="title"
-    ></iframe>
+      :data-title="title"
+      class="vueframe__embed"
+    >
+    </lite-vimeo>
   </div>
 </template>
 
-<script>
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+<script setup>
+import { computed, watch, onMounted, ref, nextTick } from 'vue'
+import 'lite-vimeo-embed'
 
-export default {
-  name: 'Vimeo',
-  props: {
-    id: { type: String, required: true },
-    autoplay: { type: Boolean, default: false },
-    muted: { type: Boolean, default: false },
-    width: { type: String, default: '1024px' },
-    height: { type: String, default: '576px' },
-    title: { type: String, default: null },
-    loading: { type: String, default: 'eager' },
+const POSTER_QUALITY_MAP = {
+  max: 'thumbnail_large',
+  high: 'thumbnail_medium',
+  default: 'thumbnail_medium',
+  low: 'thumbnail_small'
+}
+
+const props = defineProps({
+  id: { 
+    type: String, 
+    required: true 
   },
-  setup(props) {
-    const embedUrl = computed(() => {
-      const params = new URLSearchParams({
-        byline: '0',
-        portrait: '0',
-        title: '1',
-        autoplay: props.autoplay ? '1' : '0',
-        muted: props.muted ? '1' : '0',
-      })
-      return `https://player.vimeo.com/video/${props.id}?${params.toString()}`
-    })
+  title: { 
+    type: String, 
+    default: null 
+  },
+  poster: { 
+    type: String, 
+    default: null 
+  },
+  posterquality: { 
+    type: String, 
+    default: 'default',
+  },
+})
 
-    const isVisible = ref(props.loading === 'eager')
+watch(() => props.posterquality, (newVal) => {
+  if (!['max', 'high', 'default', 'low'].includes(newVal)) {
+    console.error(
+      `[Vueframe Error]: Invalid "posterquality" value: "${newVal}". ` +
+      `Valid values are: "max", "high", "default", "low". Falling back to "default".`
+    )
+  }
+})
 
-    const container = ref(null)
+const COMPUTED_POSTER = computed(() => {
+  const quality = POSTER_QUALITY_MAP[props.posterquality] || POSTER_QUALITY_MAP['default'];
+  return props.poster || `https://vumbnail.com/${props.id}_${quality}.jpg`;
+})
 
-    const initObserver = () => {
-      if (props.loading !== 'lazy' || isVisible.value) return
+const embedRef = ref(null)
 
-      const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer.disconnect()
+const applyCustomPoster = () => {
+  if (embedRef.value) {
+    embedRef.value.style.backgroundImage = `url('${COMPUTED_POSTER.value}')`
+    embedRef.value.style.backgroundSize = 'cover'
+    embedRef.value.style.backgroundPosition = 'center center'
+  }
+}
+
+onMounted(() => {
+  nextTick(() => {
+    applyCustomPoster()
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+          applyCustomPoster()
         }
       })
-
-      if (container.value) {
-        observer.observe(container.value)
-      }
+    })
+    if (embedRef.value) {
+      observer.observe(embedRef.value, { attributes: true, attributeFilter: ['style'] })
     }
+  })
+})
 
-    onMounted(() => {
-      if (props.loading === 'lazy') {
-        initObserver()
-      }
-    })
-
-    onUnmounted(() => {
-      if (observer) {
-        observer.disconnect()
-      }
-    })
-
-    return { embedUrl, isVisible, container }
-  },
-}
+defineExpose({
+  Vimeo: {
+    props,
+  }
+})
 </script>
 
 <style scoped>
-.vueframe--vimeo {
+.vueframe {
   position: relative;
   overflow: hidden;
-  height: 576px;
-  width: 1024px;
-  border-radius: 0.5rem;
+  height: auto;
+  width: 720px;
+  background-color: #000000;
+  box-sizing: border-box;
 }
 
-.vueframe--vimeo .vueframe--vimeo--iframe {
-  height: 100%;
-  width: 100%;
-  z-index: 0;
+.vueframe__embed {
+  overflow: hidden;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+:deep(.vueframe__embed::before) {
+  content: none !important;
+}
+
+:deep(.vueframe__embed > iframe) {
+  height: 100% !important;
+  width: 100% !important;
 }
 </style>

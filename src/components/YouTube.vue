@@ -1,95 +1,110 @@
 <template>
   <div 
-    class="vueframe--youtube" 
-    :style="{ width: width, height: height }"
-    ref="container"
+    class="vueframe"
   >
-    <iframe
-      v-if="isVisible"
-      class="vueframe--youtube--iframe"
-      :src="embedUrl"
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" 
-      allowfullscreen
+    <lite-youtube
+      :videoid="id" 
+      :videotitle="title" 
       :title="title"
-    ></iframe>
+      :data-title="title"
+      :params="params" 
+      :autoload="AUTO_LOAD"
+      :nocookie="NO_COOKIE"
+      class="vueframe__embed"
+    >
+      <img 
+        v-if="COMPUTED_POSTER" 
+        :src="COMPUTED_POSTER" 
+        :alt="title" 
+        slot="image" 
+        class="vueframe__poster"
+      />
+    </lite-youtube>
   </div>
 </template>
 
-<script>
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+<script setup>
+import { computed, watch } from 'vue'
+import '@justinribeiro/lite-youtube'
 
-export default {
-  name: 'YouTube',
-  props: {
-    id: { type: String, required: true },
-    autoplay: { type: Boolean, default: false },
-    muted: { type: Boolean, default: false },
-    width: { type: String, default: '1024px' },
-    height: { type: String, default: '576px' },
-    title: { type: String, default: null },
-    loading: { type: String, default: 'eager' },
-  },
-  setup(props) {
-    const embedUrl = computed(() => {
-      const params = new URLSearchParams({
-        rel: 0,
-        autoplay: props.autoplay ? 1 : 0,
-        mute: props.muted ? 1 : 0,
-      })
-      return `https://www.youtube.com/embed/${props.id}?${params.toString()}`
-    })
+const AUTO_LOAD = true
+const NO_COOKIE = true
 
-    const isVisible = ref(props.loading === 'eager')
-
-    const container = ref(null)
-
-    const initObserver = () => {
-      if (props.loading !== 'lazy' || isVisible.value) return
-
-      const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer.disconnect()
-        }
-      })
-
-      if (container.value) {
-        observer.observe(container.value)
-      }
-    }
-
-    onMounted(() => {
-      if (props.loading === 'lazy') {
-        initObserver()
-      }
-    })
-
-    onUnmounted(() => {
-      if (observer) {
-        observer.disconnect()
-      }
-    })
-
-    return { embedUrl, isVisible, container }
-  },
+const POSTER_QUALITY_MAP = {
+  max: 'maxresdefault',
+  high: 'sddefault',
+  default: 'hqdefault',
+  low: 'default'
 }
+
+const props = defineProps({
+  id: { 
+    type: String, 
+    required: true 
+  },
+  title: { 
+    type: String, 
+    default: null 
+  },
+  params: { 
+    type: String, 
+    default: null 
+  },
+  poster: { 
+    type: String, 
+    default: null 
+  },
+  posterquality: { 
+    type: String, 
+    default: 'default',
+  },
+})
+
+// Validate `posterquality` and log errors for invalid values
+watch(() => props.posterquality, (newVal) => {
+  if (!['max', 'high', 'default', 'low'].includes(newVal)) {
+    console.error(
+      `[Vueframe Error]: Invalid "posterquality" value: "${newVal}". ` +
+      `Valid values are: "max", "high", "default", "low". Falling back to "default".`
+    )
+  }
+})
+
+const COMPUTED_POSTER = computed(() => {
+  const quality = POSTER_QUALITY_MAP[props.posterquality] || POSTER_QUALITY_MAP['default'];
+  return props.poster || `https://img.youtube.com/vi/${props.id}/${quality}.jpg`;
+})
+
+defineExpose({
+  Youtube: {
+    props,
+  }
+})
 </script>
 
 <style scoped>
-.vueframe--youtube {
+.vueframe {
   position: relative;
   overflow: hidden;
-  height: 576px;
-  width: 1024px;
-  border-radius: 0.5rem;
+  height: auto;
+  width: 720px;
+  background-color: #000000;
+  box-sizing: border-box;
 }
 
-.vueframe--youtube .vueframe--youtube--iframe {
-  min-height: 100%;
-  max-height: 100%;
-  min-width: 100%;
-  max-width: 100%;
+.vueframe__poster {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.vueframe__embed {
+  overflow: hidden;
+  height: 100% !important;
+  width: 100% !important;
+  --lite-youtube-frame-shadow-visible: no;
 }
 </style>

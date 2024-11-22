@@ -12,14 +12,22 @@
     "build": "rollup -c"
   },
   "peerDependencies": {
+    "@justinribeiro/lite-youtube": "*",
+    "lite-vimeo-embed": "*",
     "vue": "*"
   },
   "devDependencies": {
-    "vue": "*",
+    "@justinribeiro/lite-youtube": "*",
+    "lite-vimeo-embed": "*",
+    "@rollup/plugin-terser": "*",
     "rollup": "*",
-    "rollup-plugin-vue": "*",
-    "rollup-plugin-postcss": "*",
     "rollup-plugin-peer-deps-external": "*",
-    "@rollup/plugin-terser": "*"
+    "rollup-plugin-postcss": "*",
+    "rollup-plugin-vue": "*",
+    "vue": "*"
+  },
+  "dependencies": {
+    "@justinribeiro/lite-youtube": "*",
+    "lite-vimeo-embed": "*"
   }
 }
