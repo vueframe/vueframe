@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vueframe/vueframe.git"
+    "url": "git+https://github.com/vueframe/vueframe.git"
   },
   "bugs": {
     "url": "https://github.com/vueframe/vueframe/issues"
