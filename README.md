@@ -46,7 +46,7 @@ npm install @vueframe/vueframe
 ``main.js``
 
 ```js
-import { Youtube, Vimeo } from '@vueframe/vueframe'
+import { YouTube, Vimeo } from '@vueframe/vueframe'
 ```
 
 ## Youtube
