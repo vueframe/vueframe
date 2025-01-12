@@ -9,6 +9,8 @@
 
 <h4 align="center">High performance, rich media embed components. For your site, built using <a href="https://vuejs.org/" target="_blank">Vue.</a></h4>
 
+<p align="center">🚧 A Svelte Version is in the works</p>
+
 <p align="center">
     <a href="https://www.npmjs.com/package/@vueframe/vueframe">
         <img src="https://img.shields.io/npm/v/@vueframe/vueframe.svg?color=6a7e4c&style=flat" alt="npm version">
