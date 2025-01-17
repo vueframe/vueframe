@@ -33,7 +33,7 @@
 ## Installation
 
 ```bash
-npm install @vueframe/vueframe@3.0.0
+npm install @vueframe/vueframe@3
 ```
 
 ``App.vue``
