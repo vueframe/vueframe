@@ -5,6 +5,8 @@ updates:
     schedule:
       interval: "weekly"
     allow:
+      - dependency-name: "lite-vimeo-embed"
+      - dependency-name: "lite-youtube-embed"
       - dependency-name: "vue"
       - dependency-name: "rollup"
       - dependency-name: "rollup-plugin-vue"
