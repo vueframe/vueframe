@@ -1,4 +1,2 @@
-import YouTube from './components/YouTube.vue';
-import Vimeo from './components/Vimeo.vue';
-
-export { YouTube, Vimeo };
+export { default as YouTube } from './components/YouTube.vue';
+export { default as Vimeo } from './components/Vimeo.vue';
