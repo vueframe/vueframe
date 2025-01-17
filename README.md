@@ -24,20 +24,11 @@
 </p>
 
 <p align="center">
-  <!-- <a href="#Features">Features</a> • -->
   <a href="#installation">Installation</a> •
   <a href="#youtube">YouTube</a> •
   <a href="#vimeo">Vimeo</a> •
   <a href="#copyright--license">Copyright & license</a>
 </p>
-
-<!-- ## Features
-
-- 🎯 Simple, zero-config setup
-- 🎬 Support for YouTube, Vimeo e.t.c
-- 🚀 Vue 3 compatible
-- ⚡ Superfast and Lightweight
-- 🔄 Customizable Props -->
 
 ## Installation
 
@@ -45,10 +36,12 @@
 npm install @vueframe/vueframe
 ```
 
-``main.js``
+``App.vue``
 
-```js
-import { YouTube, Vimeo } from '@vueframe/vueframe'
+```html
+<script setup>
+  import { YouTube, Vimeo } from '@vueframe/vueframe'
+</script>
 ```
 
 ## Youtube
@@ -61,6 +54,12 @@ import { YouTube, Vimeo } from '@vueframe/vueframe'
 <YouTube id="dCxSsr5xuL8" />
 ```
 
+You can also pass in the full URL for the video
+
+```html
+<YouTube id="https://youtu.be/dCxSsr5xuL8" />
+```
+
 ### Optional props
 
 ``poster``
@@ -68,14 +67,15 @@ import { YouTube, Vimeo } from '@vueframe/vueframe'
 ```html
 <YouTube
   id="dCxSsr5xuL8"
-  poster="https://raw.githubusercontent.com/vueframe/vueframe/main/banner/banner.png"
+  poster="//picsum.photos/1280/720"
 />
 ```
 
 ``posterquality``
 
+Options: low, default, high, max
+
 ```html
-<!-- Options: low, default, high, max -->
 <YouTube
   id="dCxSsr5xuL8"
   posterquality="low"
@@ -110,6 +110,12 @@ import { YouTube, Vimeo } from '@vueframe/vueframe'
 <Vimeo id="32001208" />
 ```
 
+You can also pass in the full URL for the video
+
+```html
+<Vimeo id="https://vimeo.com/32001208" />
+```
+
 ### Optional props
 
 ``poster``
@@ -117,14 +123,15 @@ import { YouTube, Vimeo } from '@vueframe/vueframe'
 ```html
 <Vimeo
   id="32001208"
-  poster="https://raw.githubusercontent.com/vueframe/vueframe/main/banner/banner.png"
+  poster="//picsum.photos/1280/720"
 />
 ```
 
 ``posterquality``
 
+Options: low, default, high, max
+
 ```html
-<!-- Options: low, default, high, max -->
 <Vimeo
   id="32001208"
   posterquality="low"

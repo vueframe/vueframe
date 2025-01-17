@@ -1,6 +1,6 @@
 {
   "name": "@vueframe/vueframe",
-  "version": "2.0.9",
+  "version": "3.0.0",
   "description": "High performance, rich media embed components. For your site, built using Vue.",
   "private": false,
   "type": "module",
@@ -13,23 +13,24 @@
     "build": "rollup -c"
   },
   "peerDependencies": {
-    "@justinribeiro/lite-youtube": "*",
     "lite-vimeo-embed": "*",
+    "lite-youtube-embed": "^0.3.3",
     "vue": "*"
   },
   "devDependencies": {
-    "@justinribeiro/lite-youtube": "*",
-    "lite-vimeo-embed": "*",
     "@rollup/plugin-terser": "*",
-    "rollup": "*",
     "rollup-plugin-peer-deps-external": "*",
     "rollup-plugin-postcss": "*",
     "rollup-plugin-vue": "*",
+    "rollup": "*",
+    "lite-vimeo-embed": "*",
+    "lite-youtube-embed": "^0.3.3",
     "vue": "*"
   },
   "dependencies": {
-    "@justinribeiro/lite-youtube": "*",
-    "lite-vimeo-embed": "*"
+    "lite-vimeo-embed": "*",
+    "lite-youtube-embed": "^0.3.3",
+    "vue": "*"
   },
   "repository": {
     "type": "git",

@@ -1,115 +1,115 @@
 <template>
-  <div class="vueframe">
-    <lite-vimeo
-      ref="embedRef"
-      :videoid="id" 
-      :title="title"
-      :data-title="title"
-      class="vueframe__embed"
-    >
-    </lite-vimeo>
-  </div>
+  <lite-vimeo
+    ref="vimeo"
+    :videoid="videoId"
+    :data-title="title"
+  ></lite-vimeo>
 </template>
 
-<script setup>
-import { computed, watch, onMounted, ref, nextTick } from 'vue'
+<script>
 import 'lite-vimeo-embed'
 
-const POSTER_QUALITY_MAP = {
-  max: 'thumbnail_large',
-  high: 'thumbnail_medium',
-  default: 'thumbnail_medium',
-  low: 'thumbnail_small'
-}
-
-const props = defineProps({
-  id: { 
-    type: String, 
-    required: true 
+export default {
+  name: 'Vimeo',
+  props: {
+    id: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      default: undefined
+    },
+    poster: {
+      type: String,
+      default: undefined
+    },
+    posterquality: {
+      type: String,
+      default: 'default',
+      validator: (value) => ['max', 'high', 'default', 'low'].includes(value)
+    },
   },
-  title: { 
-    type: String, 
-    default: null 
-  },
-  poster: { 
-    type: String, 
-    default: null 
-  },
-  posterquality: { 
-    type: String, 
-    default: 'default',
-  },
-})
-
-watch(() => props.posterquality, (newVal) => {
-  if (!['max', 'high', 'default', 'low'].includes(newVal)) {
-    console.error(
-      `[Vueframe Error]: Invalid "posterquality" value: "${newVal}". ` +
-      `Valid values are: "max", "high", "default", "low". Falling back to "default".`
-    )
-  }
-})
-
-const COMPUTED_POSTER = computed(() => {
-  const quality = POSTER_QUALITY_MAP[props.posterquality] || POSTER_QUALITY_MAP['default'];
-  return props.poster || `https://vumbnail.com/${props.id}_${quality}.jpg`;
-})
-
-const embedRef = ref(null)
-
-const applyCustomPoster = () => {
-  if (embedRef.value) {
-    embedRef.value.style.backgroundImage = `url('${COMPUTED_POSTER.value}')`
-    embedRef.value.style.backgroundSize = 'cover'
-    embedRef.value.style.backgroundPosition = 'center center'
-  }
-}
-
-onMounted(() => {
-  nextTick(() => {
-    applyCustomPoster()
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-          applyCustomPoster()
+  computed: {
+    videoId() {
+        const extractId = (input) => {
+        if (!input) return null
+        
+        const str = String(input)
+        
+        if (str.includes('vimeo.com/')) {
+            return str.split('vimeo.com/')[1].split(/[?&]/)[0]
         }
-      })
-    })
-    if (embedRef.value) {
-      observer.observe(embedRef.value, { attributes: true, attributeFilter: ['style'] })
+        
+        if (/^\d+$/.test(str)) {
+            return str
+        }
+        
+        return null
+        }
+        
+        return extractId(this.id) || ''
+    },
+    postersrc() {
+      const map = {
+        max: 'thumbnail_large',
+        high: 'thumbnail_medium',
+        default: 'thumbnail_medium',
+        low: 'thumbnail_small'
+      }
+      return this.poster || (this.videoId ? `https://vumbnail.com/${this.videoId}_${map[this.posterquality] || 'thumbnail_medium'}.jpg` : '')
     }
-  })
-})
+  },
+  mounted() {
+    this.enforcePoster()
+    this.setupMutationObserver()
+  },
+  methods: {
+    enforcePoster() {
+      if (this.$refs.vimeo && this.postersrc) {
+        this.$refs.vimeo.style.backgroundImage = `url('${this.postersrc}')`
+      }
+    },
+    setupMutationObserver() {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+            this.enforcePoster()
+          }
+        })
+      })
 
-defineExpose({
-  Vimeo: {
-    props,
+      if (this.$refs.vimeo) {
+        observer.observe(this.$refs.vimeo, {
+          attributes: true,
+          attributeFilter: ['style']
+        })
+      }
+    }
+  },
+  watch: {
+    postersrc: {
+      handler() {
+        this.$nextTick(this.enforcePoster)
+      },
+      immediate: true
+    }
+  },
+  beforeDestroy() {
+    if (this.observer) {
+      this.observer.disconnect()
+    }
   }
-})
+}
 </script>
 
-<style scoped>
-.vueframe {
-  position: relative;
-  overflow: hidden;
-  height: auto;
+<style>
+lite-vimeo {
+  aspect-ratio: 16 / 9;
   width: 720px;
-  background-color: #000000;
-  box-sizing: border-box;
-}
-
-.vueframe__embed {
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
   overflow: hidden;
-  height: 100% !important;
-  width: 100% !important;
-}
-
-:deep(.vueframe__embed::before) {
-  content: none !important;
-}
-
-:deep(.vueframe__embed > iframe) {
-  height: 100% !important;
-  width: 100% !important;
 }
 </style>
