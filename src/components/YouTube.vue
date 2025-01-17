@@ -32,7 +32,7 @@ export default {
       validator: (value) => ['max', 'high', 'default', 'low'].includes(value)
     },
     params: {
-      type: Object,
+      type: String,
       default: undefined
     }
   },
