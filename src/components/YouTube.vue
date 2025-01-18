@@ -9,7 +9,7 @@
 
 <script>
 import 'lite-youtube-embed'
-import '../../node_modules/lite-youtube-embed/src/lite-yt-embed.css';
+import 'lite-youtube-embed/src/lite-yt-embed.css';
 
 export default {
   name: 'YouTube',
