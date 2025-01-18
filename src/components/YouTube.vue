@@ -123,8 +123,4 @@ lite-youtube {
   display: inline-flex;
   overflow: hidden;
 }
-
-lite-youtube::before {
-  background-image: none;
-}
 </style>
