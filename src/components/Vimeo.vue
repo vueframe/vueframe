@@ -106,7 +106,7 @@ export default {
 <style>
 lite-vimeo {
   aspect-ratio: 16 / 9;
-  width: 720px;
+  width: 100%;
   align-items: center;
   justify-content: center;
   display: inline-flex;
