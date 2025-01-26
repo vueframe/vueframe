@@ -6,9 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">High performance, rich media embed components. For your site, built using <a href="https://vuejs.org/" target="_blank">Vue.</a></h4>
-
-<p align="center">🚧 A Svelte Version is in the works</p>
+<h4 align="center">Simple embeds for Svelte and Vue.</a></h4>
 
 <p align="center">
     <a href="https://www.npmjs.com/package/@vueframe/vueframe">
