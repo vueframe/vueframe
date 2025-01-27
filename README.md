@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">Simple embeds for Svelte and Vue.</a></h4>
+<h4 align="center">Simple media embeds for Svelte and Vue.</a></h4>
 
 <p align="center">
     <a href="https://www.npmjs.com/package/@vueframe/vueframe">
