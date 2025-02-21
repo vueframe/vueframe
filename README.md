@@ -27,6 +27,9 @@
   <a href="#copyright--license">Copyright & license</a>
 </p>
 
+> [!IMPORTANT]
+> **🚧 vueframe** is no longer being maintained and has been moved to **[embedz](https://github.com/embedz/embedz)**
+
 ## Installation
 
 ```bash
