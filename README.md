@@ -1,4 +1,4 @@
-<h1 align="center">
+<!--<h1 align="center">
   <br>
   <a href="https://github.com/vueframe/vueframe"><img src="https://raw.githubusercontent.com/vueframe/vueframe/refs/heads/main/icon/vueframe.png" alt="vueframe" width="175"></a>
   <br>
@@ -25,7 +25,7 @@
   <a href="#youtube">YouTube</a> •
   <a href="#vimeo">Vimeo</a> •
   <a href="#copyright--license">Copyright & license</a>
-</p>
+</p>-->
 
 > [!IMPORTANT]
 > **🚧 vueframe** is no longer being maintained and has been moved to **[embedz](https://github.com/embedz/embedz)**
